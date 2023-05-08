@@ -43,5 +43,35 @@ namespace API.Parqueadero.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [HttpGet]
+        [Route("GetImportesPorMes/{mes}")]
+        public async Task<IActionResult> GetImportesPorMes(int mes) 
+        {
+            try
+            {
+                var result = _registro.GetImportesPorMes(mes);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpGet]
+        [Route("GetImportesPorVehiculo/{placa}")]
+        public async Task<IActionResult> GetImportesPorVehiculo(string placa)
+        {
+            try
+            {
+                var result = _registro.GetImportesPorVehiculo(placa);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

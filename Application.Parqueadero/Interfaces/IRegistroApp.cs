@@ -11,5 +11,7 @@ namespace Application.Parqueadero.Interfaces
     {
         Task<ResultDTO> RegistrarVehiculo(ImportesDTO importe);
         Task<ResultDTO> GenerarCierre(int mes);
+        Task<List<ImportesDTO>> GetImportesPorMes(int mes);
+        Task<ImportesDTO> GetImportesPorVehiculo(string placa);
     }
 }

@@ -24,5 +24,13 @@ namespace Application.Parqueadero.Contracts
         {
             return await _registro.GenerarCierre(mes);
         }
+        public async Task<List<ImportesDTO>> GetImportesPorMes(int mes) 
+        {
+            return await _registro.GetImportesPorMes(mes);
+        }
+        public async Task<ImportesDTO> GetImportesPorVehiculo(string placa) 
+        {
+            return await _registro.GetImportesPorVehiculo(placa);
+        }
     }
 }

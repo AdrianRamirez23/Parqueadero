@@ -130,5 +130,31 @@ namespace Services.Parqueadero.Contracts
                 };
             }
         }
+        public async Task<List<ImportesDTO>> GetImportesPorMes(int mes)
+        {
+            try
+            {
+                var importes = _context.Importes.Where(a => a.FechaSalida.Value.Month == mes).ToList();
+                return _mapper.Map<List<ImportesDTO>>(importes);
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
+        public async Task<ImportesDTO> GetImportesPorVehiculo(string placa)
+        {
+            try
+            {
+                var importes = _context.Importes.Where(a => a.Placa == placa).ToList();
+                return _mapper.Map<ImportesDTO>(importes.Max());
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
     }
 }
